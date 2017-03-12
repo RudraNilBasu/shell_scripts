@@ -3,4 +3,4 @@
 # (if using zsh)
 # sudo apt-get install cowsay
 # sudo apt-get install lolcat
-shuf -n 1 quotes | cowsay | lolcat
+shuf -n 1 ~/quotes | cowsay | lolcat
