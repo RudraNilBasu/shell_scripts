@@ -1,0 +1,207 @@
+\documentclass[12pt]{article}
+
+%\usepackage{fullpage}
+%\usepackage{epic}
+%\usepackage{eepic}
+%\usepackage{graphicx}
+
+\usepackage{listings} % Code
+\usepackage{fancyhdr} % header footer
+\usepackage{xcolor}  % Color
+\usepackage{mathtools} % Math
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+
+\cfoot{footer}
+
+\lstset {
+backgroundcolor = \color{lightgray},
+                   language = C++,
+                   xleftmargin = 2mm,
+                   framexleftmargin = 1em
+}
+\date{ }
+
+\begin{document}
+
+% to generate the contents page
+%\maketitle
+\tableofcontents
+
+\newpage
+
+\setlength{\fboxrule}{.5mm}\setlength{\fboxsep}{1.2mm}
+\newlength{\boxlength}\setlength{\boxlength}{\textwidth}
+\addtolength{\boxlength}{-4mm}
+\begin{center}\framebox{\parbox{\boxlength}{\bf
+CS693: Operating System Lab \hfill 
+Year: 2017
+%Date: 11/10/2016
+\\
+%DATE
+\hfill
+}}\end{center}
+\vspace{5mm}
+
+\section{Addition of a list of numbers}
+
+\textbf{Problem 1} \textit{Take a list of numbers and add them}\\
+
+\textit{Code.}
+
+\begin{lstlisting}
+#!bin/bash
+a="1 2 3 4 5"
+s=0
+for var in $a
+do
+	s=$((var+s))
+done
+echo "The result is: "$s
+
+\end{lstlisting}
+
+\textit{Output.}
+\begin{lstlisting}
+The result is: 15
+\end{lstlisting}
+
+\section{Show contents of a file}
+
+\textbf{Problem 2} \textit{Show the contents of a file}\\
+
+\textit{Code.}
+
+\begin{lstlisting}
+#!bin/bash
+echo "Enter filename: "
+read name
+cat $name
+
+\end{lstlisting}
+
+\textit{Output.}
+\begin{lstlisting}
+Enter filename: 
+file
+This is a file
+This is the second line of the file
+Good Bye
+\end{lstlisting}
+
+\section{Print even numbers from a set of numbers}
+
+\textbf{Problem 3} \textit{Print even numbers from a set of numbers}\\
+
+\textit{Code.}
+
+\begin{lstlisting}
+#!bin/bash
+a="1 2 3 4 5 6 7 8 9 10"
+for var in $a
+do
+	e=$((var%2))
+	if [ $e -eq 0 ]
+	then
+		echo $var
+	fi
+done
+\end{lstlisting}
+
+\textit{Output.}
+\begin{lstlisting}
+2
+4
+6
+8
+10
+\end{lstlisting}
+
+\section{Search a number in a list}
+
+\textbf{Problem 4} \textit{Search for a number from a list}\\
+
+\textit{Code.}
+
+\begin{lstlisting}
+#!bin/bash
+echo  "Enter number of elements: "
+read num
+
+echo "Enter the numbers.."
+
+for ((i=0;i<num;i++));
+do
+	read a[i]
+done
+
+echo "Enter the number to be searched: "
+read search
+
+for ((i=0;i<num;i++));
+do
+	if [ $search -eq ${a[i]} ]
+	then
+		echo "Found"
+	fi
+done
+\end{lstlisting}
+
+\textit{Output.}
+\begin{lstlisting}
+Enter number of elements: 
+5
+Enter the numbers..
+5
+4
+3
+2
+1
+Enter the number to be searched: 
+2
+Found
+\end{lstlisting}
+
+\section{Search files starting with a letter}
+
+\textbf{Problem 5} \textit{Search files starting with a letter}\\
+
+\textit{Code.}
+
+\begin{lstlisting}
+#!bin/bash
+ls -l | grep "c"
+\end{lstlisting}
+
+\textit{Output.}
+\begin{lstlisting}
+-rw-rw-r-- 1 rudra rudra  44 May  5 00:46 contents.sh
+-rw-rw-r-- 1 rudra rudra 265 May  5 01:10 search.sh
+\end{lstlisting}
+
+\section{Search files starting with a letter}
+
+\textbf{Problem 6} \textit{Search files starting with a letter}\\
+
+\textit{Code.}
+
+\begin{lstlisting}
+#!bin/bash
+ls -l | grep "c"
+\end{lstlisting}
+
+\textit{Output.}
+\begin{lstlisting}
+-rw-rw-r-- 1 rudra rudra  44 May  5 00:46 contents.sh
+-rw-rw-r-- 1 rudra rudra 265 May  5 01:10 search.sh
+\end{lstlisting}
+
+
+\end{document}
+\grid
