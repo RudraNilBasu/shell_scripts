@@ -1,0 +1,371 @@
+\documentclass[12pt]{article}
+
+%\usepackage{fullpage}
+%\usepackage{epic}
+%\usepackage{eepic}
+%\usepackage{graphicx}
+
+\usepackage{listings} % Code
+\usepackage{fancyhdr} % header footer
+\usepackage{xcolor}  % Color
+\usepackage{mathtools} % Math
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+
+%\newcommand{\proof}[1]{
+%{\noindent {\it Proof.} {#1} \rule{2mm}{2mm} \vskip \belowdisplayskip}
+%}
+
+
+%\newtheorem{lemma}{Lemma}[section]
+%\newtheorem{theorem}[lemma]{Theorem}
+%\newtheorem{claim}[lemma]{Claim}
+%\newtheorem{definition}[lemma]{Definition}
+%\newtheorem{corollary}[lemma]{Corollary}
+
+%\setlength{\oddsidemargin}{0in}
+%\setlength{\topmargin}{0in}
+%\setlength{\textwidth}{6.5in}
+%\setlength{\textheight}{8.5in}
+
+\cfoot{footer}
+
+\lstset {
+%language=Java,
+backgroundcolor = \color{lightgray},
+                   language = C++,
+                   xleftmargin = 2mm,
+                   framexleftmargin = 1em
+%lineskip={-1.5pt}
+}
+
+%\usepackage[utf8]{inputenc}
+ 
+ 
+% Information about contents section
+%\title{Contents}
+%\author{Rudra Nil Basu}
+\date{ }
+ 
+%\renewcommand*\contentsname{Summary}
+
+\begin{document}
+
+% to generate the contents page
+%\maketitle
+\tableofcontents
+
+\newpage
+
+\setlength{\fboxrule}{.5mm}\setlength{\fboxsep}{1.2mm}
+\newlength{\boxlength}\setlength{\boxlength}{\textwidth}
+\addtolength{\boxlength}{-4mm}
+\begin{center}\framebox{\parbox{\boxlength}{\bf
+CS693: Object Oriented Programming Lab \hfill 
+Year: 2017
+%Date: 11/10/2016
+\\
+%DATE
+\hfill
+}}\end{center}
+\vspace{5mm}
+
+\section{Display Permission}
+
+\textbf{Problem 1} \textit{Write a program to a shell script that will read a directory name from the terminal and will display only the name
+	and permission of the files}\\
+
+\textit{Code.}
+
+\begin{lstlisting}
+#!/bin/bash
+read -p "Enter directory name:" direc
+ls -l $direc | awk '{print $1, $9}'
+\end{lstlisting}
+
+\textit{Output.}
+\begin{lstlisting}
+-rw-rw-r--
+-rw-rw-r--
+drwxrwxr-x
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+-rw-rw-r--
+116.193.143.137.html
+124442-Pulse-Glass.tar.gz
+16___1366x768_wallpaper_pack_by_jhasenfusphoto-d4ddjpd
+16___1366x768_wallpaper_pack_by_jhasenfusphoto-d4ddjpd.zip
+17017156_1892189880877953_1020699469635668422_o.jpg
+171217-Breeze-GRUB2.tar.gz
+240P_400K_113924551.mp4
+7b0cff72-9a21-4567-8353-5d87c4696e26.html
+AdbeRdr9.5.5-1_i386linux_enu.deb
+android-ndk-r13b-linux-x86_64.zip
+android-studio-ide-143.3101438-linux.zip
+assignment-1.doc
+\end{lstlisting}
+
+\section{Maximum}
+
+\textbf{Problem 2} \textit{Write a shell script that will find the maximum from the given three nos.}\\
+
+\textit{Code.}
+
+\begin{lstlisting}
+#!/bin/bash
+read -p "Enter first number:" a
+echo ""
+read -p "Enter second number:" b
+echo ""
+read -p "Enter third number:" c
+echo ""
+if [ $a -gt $b ]
+then if [ $a -gt $c ]
+then echo "$a is the greatest"
+else echo "$c is the greatest"
+fi
+elif [ $b -gt $c ]
+then echo "$b is the greatest"
+else echo "$c is the greatest"
+fi
+\end{lstlisting}
+
+\textit{Output.}
+\begin{lstlisting}
+Enter first number:25
+Enter second number:-3
+Enter third number:5
+25 is the greatest
+\end{lstlisting}
+
+\section{Directory checking}
+
+\textbf{Problem 3} \textit{Write a shell script that will read a file/directory name from the terminal, check whether that
+	file/directory is in the current directory. If it exists in the current directory, display whether it is file or
+	directory.}\\
+
+\textit{Code.}
+
+\begin{lstlisting}
+#!/bin/bash
+read -p "Enter a name of directory or file:" name
+echo ""
+if [ -f $name ]
+then echo "File is in directory"
+elif [ -d $name ]
+then echo "It is a sub-directory"
+else echo "Doesn't exist"
+fi
+\end{lstlisting}
+
+\textit{Output.}
+\begin{lstlisting}
+Enter a name of directory or file:mouri
+Doesn't exist
+Enter a name of directory or file:exist.sh
+File is in directory
+Enter a name of directory or file:prog
+It is a sub-directory
+\end{lstlisting}
+
+\section{Directories in sorted order}
+
+\textbf{Problem 4} \textit{Write a shell script that will read a directory name from the terminal then it will display all the
+	directories followed by the files in the sorted order.}\\
+
+\textit{Code.}
+
+\begin{lstlisting}
+#!/bin/bash
+read -p "Enter a direc:" direc
+ls --group-directories-first $direc
+\end{lstlisting}
+
+\textit{Output.}
+\begin{lstlisting}
+Downloaded by Variety
+images
+Wallpapers
+Webcam
+15416884_1239745149428837_1970874045_n (3rd copy).jpg
+15416884_1239745149428837_1970874045_n (another copy).jpg
+15416884_1239745149428837_1970874045_n (copy).jpg
+15416884_1239745149428837_1970874045_n.jpg
+\end{lstlisting}
+
+\section{GCD if two numbers}
+
+\textbf{Problem 5} \textit{Write a shell script that computes the gcd of two numbers.}\\
+
+\textit{Code.}
+
+\begin{lstlisting}
+#!/bin/bash
+gcd()
+{
+read -p "Enter first: " a
+read -p "Enter second number: " b
+r=1
+until [ $r -eq 0 ]
+do
+let "r= $a % $b "
+a=$b
+b=$r
+done
+echo "HCF is: "$a
+}
+gcd $a $b
+\end{lstlisting}
+
+\textit{Output.}
+\begin{lstlisting}
+Enter first: 5
+Enter second number: 25
+HCF is: 5
+\end{lstlisting}
+
+\section{Fibonacci numbers}
+
+\textbf{Problem 6} \textit{Write a shell script to generate a Fibonacci series of length 'n' with the first two nos of the series being
+	3 and 5 respectively.}\\
+
+\textit{Code.}
+
+\begin{lstlisting}
+#!/bin/bash
+fibo()
+{
+a=3
+b=5
+read -p "Enter no of terms to generate: " n
+echo -n "$a "
+echo -n "$b "
+n=$((n-2))
+until [ $n -eq 0 ]
+do
+c=$(($a+$b))
+echo $c|bc
+a=$b
+b=$c
+n=$((n-1))
+done
+echo ""
+}
+fibo $n
+\end{lstlisting}
+
+\textit{Output.}
+\begin{lstlisting}
+3 5 8 13 21 34 55 89 144 233
+\end{lstlisting}
+
+\section{Factorial}
+
+\textbf{Problem 7} \textit{Write a shell scripts to calculate the factorial of a integer 'n'.}\\
+
+\textit{Code.}
+
+\begin{lstlisting}
+#!/bin/bash
+read -p "Enter a number:" a
+seq -s "*" 1 $a | bc
+\end{lstlisting}
+
+\textit{Output.}
+\begin{lstlisting}Enter a number:5
+120
+\end{lstlisting}
+
+\section{Sort a list of n numbers}
+
+\textbf{Problem 8} \textit{Write a shell program to sort a list of 'n' no.}\\
+
+\textit{Code.}
+
+\begin{lstlisting}
+#!/bin/bash
+arr=(8 7 9)
+sorted=( $( printf "%s\n" "${arr[@]}" | sort -n ) )
+echo ${sorted[*]}
+\end{lstlisting}
+
+\textit{Output.}
+\begin{lstlisting}
+7 8 9
+\end{lstlisting}
+
+\section{Change background and foreground color}
+
+\textbf{Problem 9} \textit{Write a shell program to change the foreground and background color of terminal}\\
+
+\textit{Code.}
+
+\begin{lstlisting}
+read -p "Enter foreground color: " foregrd
+read -p "Enter background color: " bckgrd
+setterm -term linux -back $bckgrd -fore $foregrd -clear
+\end{lstlisting}
+
+\textit{Output.}
+\begin{lstlisting}
+
+\end{lstlisting}
+
+\section{Use different options of grep command}
+
+\textbf{Problem 9} \textit{Write a shell program to demonstrate various use of "grep" command}\\
+
+\textit{Code.}
+
+\begin{lstlisting}
+read -p "Enter the file name: " file
+read -p "Enter the pattern: " key
+grep -i $key $file #prints numbers of lines ignoring case
+echo ""
+grep "R*" $file #prints lines where string is starting with “R”
+echo ""
+grep -A 3 "Rohit" $file #prints three lines after line containing “Rohit”
+echo ""
+grep -w "R" $file #prints
+echo ""
+grep -c $key $file
+echo ""
+grep -n $key $file
+echo ""
+\end{lstlisting}
+
+\textit{Output.}
+\begin{lstlisting}
+Enter the file name: inp.txt
+Enter the pattern: R
+Rudra doesn't like Tokon
+Rohit a doesn't like tokon
+Rahul doesn't like tokon
+Sumitra doesn't like tokon
+Rudra doesn't like Tokon
+Rohit a doesn't like tokon
+Debaa doesn't like tokon
+Rahul doesn't like tokon
+Sumitra doesn't like tokon
+Supi like tokon
+LOLOLOLOLOL
+Rohit a doesn't like tokon
+Debaa doesn't like tokon
+Rahul doesn't like tokon
+Sumitra doesn't like tokon
+\end{lstlisting}
+
+\end{document}
+%\grid
