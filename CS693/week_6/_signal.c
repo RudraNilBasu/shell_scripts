@@ -9,6 +9,7 @@ int main()
 {
 	signal(SIGINT, view_err);
 	signal(SIGFPE, div_err);
+	//signal(SIGFPE, SIG_DFL); /* This throws the default value*/
 	//while(1);
 	float a = 1/0;
 }
