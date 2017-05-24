@@ -367,9 +367,41 @@ Rahul doesn't like tokon
 Sumitra doesn't like tokon
 \end{lstlisting}
 
+\section{Fork}
+
+\textbf{Problem 10} \textit{Write a program to demonstrate forking in C}\\
+
+\textit{Code.}
+
+\begin{lstlisting}
+#include <unistd.h>
+#include <stdio.h>
+int main()
+{
+	pid_t t;
+	t = fork();
+	if (t > 0) {
+		printf("I am parent\n");
+	} else if (t == 0) {
+	printf("CHILD\n");
+	} else {
+		printf("ERROR\n");
+	}
+	printf("This line is common\n");
+}
+\end{lstlisting}
+
+\textit{Output.}
+\begin{lstlisting}
+I am parent
+This line is common
+CHILD
+This line is common
+\end{lstlisting}
+
 \section{Process Hierarchy and Zombie processes}
 
-\textbf{Problem 9} \textit{Write a program to demonstrate zombie processes}\\
+\textbf{Problem 11} \textit{Write a program to demonstrate zombie processes}\\
 
 \textit{Code.}
 
@@ -431,3 +463,4 @@ int main()
 
 \end{document}
 %\grid\grid
+\grid

@@ -8,4 +8,5 @@
 \contentsline {section}{\numberline {8}Sort a list of n numbers}{5}
 \contentsline {section}{\numberline {9}Change background and foreground color}{6}
 \contentsline {section}{\numberline {10}Use different options of grep command}{6}
-\contentsline {section}{\numberline {11}Process Hierarchy and Zombie processes}{7}
+\contentsline {section}{\numberline {11}Fork}{7}
+\contentsline {section}{\numberline {12}Process Hierarchy and Zombie processes}{7}

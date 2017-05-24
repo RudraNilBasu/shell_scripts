@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.12.14)  23 MAY 2017 21:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.12.14)  24 MAY 2017 20:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -447,55 +447,60 @@ File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 377.
 
-Overfull \hbox (71.89275pt too wide) in paragraph at lines 389--390
+Underfull \hbox (badness 10000) in paragraph at lines 404--405
+
+ []
+
+
+Overfull \hbox (71.89275pt too wide) in paragraph at lines 421--422
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (71.89275pt too wide) in paragraph at lines 392--393
+Overfull \hbox (71.89275pt too wide) in paragraph at lines 424--425
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-
-Overfull \hbox (8.44286pt too wide) in paragraph at lines 398--399
+[7]
+Overfull \hbox (8.44286pt too wide) in paragraph at lines 430--431
 [][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (78.94273pt too wide) in paragraph at lines 401--402
+Overfull \hbox (78.94273pt too wide) in paragraph at lines 433--434
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (71.89275pt too wide) in paragraph at lines 405--406
+Overfull \hbox (71.89275pt too wide) in paragraph at lines 437--438
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (128.29265pt too wide) in paragraph at lines 408--409
+Overfull \hbox (128.29265pt too wide) in paragraph at lines 440--441
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (128.29265pt too wide) in paragraph at lines 411--412
+Overfull \hbox (128.29265pt too wide) in paragraph at lines 443--444
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[7] [8] (./oop_rnb.aux) ) 
+[8] (./oop_rnb.aux) ) 
 Here is how much of TeX's memory you used:
- 5415 strings out of 493029
- 74838 string characters out of 6136233
- 191403 words of memory out of 5000000
- 8885 multiletter control sequences out of 15000+600000
+ 5429 strings out of 493029
+ 74964 string characters out of 6136233
+ 186403 words of memory out of 5000000
+ 8899 multiletter control sequences out of 15000+600000
  8310 words of font info for 30 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  51i,6n,58p,254b,1433s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
-2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on oop_rnb.pdf (8 pages, 87953 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+mi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on oop_rnb.pdf (8 pages, 89138 bytes).
 PDF statistics:
  51 PDF objects out of 1000 (max. 8388607)
  35 compressed objects within 1 object stream
