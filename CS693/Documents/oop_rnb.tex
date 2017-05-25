@@ -399,6 +399,38 @@ CHILD
 This line is common
 \end{lstlisting}
 
+\section{PID}
+
+\textbf{Problem 11} \textit{Write a program to create a child process in C and print the PID of parent and child}\\
+
+\textit{Code.}
+
+\begin{lstlisting}
+#include <unistd.h>
+#include <stdio.h>
+int main()
+{
+	pid_t t;
+	t = fork();
+	if (t > 0) {
+		printf("I am parent. My pid is: %d\n",getpid());
+	} else if (t == 0) {
+		printf("CHILD. My ppid is %d\n",getppid());
+	} else {
+		printf("ERROR\n");
+	}
+	printf("This line is common\n");
+}
+\end{lstlisting}
+
+\textit{Output.}
+\begin{lstlisting}
+I am parent. My pid is: 7052
+This line is common
+CHILD. My ppid is 7052
+This line is common
+\end{lstlisting}
+
 \section{Process Hierarchy and Zombie processes}
 
 \textbf{Problem 11} \textit{Write a program to demonstrate zombie processes}\\
@@ -418,10 +450,12 @@ int main()
 		printf("In A. Pid=%d\n",getpid());
 		pid_t te = vfork();
 		if (te > 0) {
-			printf("In A. Pid: %d, Ppid=%d\n",getpid(),getppid());
+			printf("In A. Pid: %d, Ppid=%d\n",
+			getpid(),getppid());
 			// We are in A
 		} else if (te == 0) {
-			printf("In E. Pid= %d, PPid=%d\n",getpid(),getppid());
+			printf("In E. Pid= %d, PPid=%d\n",
+			getpid(),getppid());
 			// We are in E
 		}
 		exit(0);
@@ -430,17 +464,21 @@ int main()
 		printf("In B. Pid=%d, PPid=%d\n",getpid(),getppid());
 		pid_t tee = vfork();
 		if (tee > 0) {
-			printf("IN B,  Pid= %d, PPid=%d\n",getpid(),getppid());
+			printf("IN B,  Pid= %d, PPid=%d\n",
+			getpid(),getppid());
 			// We are in B
 		} else if (tee == 0) {
 			// We are in C
-			printf("In C  Pid= %d, PPid=%d\n",getpid(),getppid());
+			printf("In C  Pid= %d, PPid=%d\n",
+			getpid(),getppid());
 			pid_t teee = vfork();
 			if (teee > 0) {
-				printf("In B  Pid= %d, PPid=%d\n",getpid(),getppid());
+				printf("In B  Pid= %d, PPid=%d\n",
+				getpid(),getppid());
 				// We are in B
 			} else if (teee == 0) {
-				printf("In D  Pid= %d, PPid=%d\n",getpid(),getppid());
+				printf("In D  Pid= %d, PPid=%d\n",
+				getpid(),getppid());
 				// We are in D
 			}
 			sleep(10);
