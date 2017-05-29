@@ -325,7 +325,7 @@ setterm -term linux -back $bckgrd -fore $foregrd -clear
 
 \section{Use different options of grep command}
 
-\textbf{Problem 9} \textit{Write a shell program to demonstrate various use of "grep" command}\\
+\textbf{Problem 10} \textit{Write a shell program to demonstrate various use of "grep" command}\\
 
 \textit{Code.}
 
@@ -367,9 +367,111 @@ Rahul doesn't like tokon
 Sumitra doesn't like tokon
 \end{lstlisting}
 
+\section{Search from a list of n numbers}
+
+\textbf{Problem 11} \textit{Write a shell program that will accept 'n' nos from the terminals and will search the position of a given no in the supplied nos}\\
+
+\textit{Code.}
+
+\begin{lstlisting}
+#!/bin/bash
+read -p "Enter limit of numbers: " n
+flag=1
+for (( i = 0; i < n; i++ )); do
+read a[i]
+done
+read -p "Enter no to be searched: " key
+for (( i = 0; i < n; i++ )); do
+if [ "$key" -eq ${a[i]} ]
+then
+echo " Key found in " $i
+flag=0
+fi
+done
+if [ "$flag" -eq "1" ]
+then
+echo "not found"
+fi
+\end{lstlisting}
+
+\textit{Output.}
+\begin{lstlisting}
+Enter limit of numbers: 6
+1 3 5 12 6 -1
+Enter no to be searched: -1
+Key found in 5
+Enter limit of numbers: 6
+1 3 5 12 6 -1
+Enter no to be searched: 2
+not found
+\end{lstlisting}
+
+\section{Show contents of a file}
+
+\textbf{Problem 12} \textit{Write a shell program that will show the contents of a file}\\
+
+\textit{Code.}
+
+\begin{lstlisting}
+read -p "Enter the file name: " file$
+cat -A $file$
+\end{lstlisting}
+
+\textit{Output.}
+\begin{lstlisting}
+Enter the file name:hello.txt
+Hello World!
+\end{lstlisting}
+
+\section{Show only even numbers from an aray}
+
+\textbf{Problem 13} \textit{Show only even numbers from an aray}\\
+
+\textit{Code.}
+
+\begin{lstlisting}
+#!bin/bash
+a="1 2 3 4 5 6 7 8 9 10"
+for var in $a
+do
+even=$((var%2))
+if [ "$even" -eq 0 ]
+then
+echo $var
+fi
+done
+\end{lstlisting}
+
+\textit{Output.}
+\begin{lstlisting}
+2 4 6 8 10
+\end{lstlisting}
+
+\section{Use pipe to demonstrate filter and grep}
+
+\textbf{Problem 14} \textit{Use pipe to demonstrate filter and grep}\\
+
+\textit{Code.}
+
+\begin{lstlisting}
+read -p "Enter file name: " file
+read -p "Enter the key: " key
+cat $file | grep -i "$key"
+\end{lstlisting}
+
+\textit{Output.}
+\begin{lstlisting}
+Enter file name: inp.txt
+Enter the key: R
+Rudra doesn't like Tokon
+Rohit a doesn't like tokon
+Rahul doesn't like tokon
+Sumitra doesn't like tokon
+\end{lstlisting}
+
 \section{Fork}
 
-\textbf{Problem 10} \textit{Write a program to demonstrate forking in C}\\
+\textbf{Problem 15 } \textit{Write a program to demonstrate forking in C}\\
 
 \textit{Code.}
 
@@ -401,7 +503,7 @@ This line is common
 
 \section{PID}
 
-\textbf{Problem 11} \textit{Write a program to create a child process in C and print the PID of parent and child}\\
+\textbf{Problem 16} \textit{Write a program to create a child process in C and print the PID of parent and child}\\
 
 \textit{Code.}
 
@@ -433,7 +535,7 @@ This line is common
 
 \section{Process Hierarchy and Zombie processes}
 
-\textbf{Problem 11} \textit{Write a program to demonstrate zombie processes}\\
+\textbf{Problem 17} \textit{Write a program to demonstrate zombie processes}\\
 
 \textit{Code.}
 
