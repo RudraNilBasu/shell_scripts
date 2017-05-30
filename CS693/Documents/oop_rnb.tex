@@ -598,6 +598,148 @@ int main()
 \begin{lstlisting}
 \end{lstlisting}
 
+\section{Process PID and PPID}
+
+\textbf{Problem 18} \textit{Create a child process in C and print the PID of parent and child and also the PPID of child.}\\
+
+\textit{Code.}
+
+\begin{lstlisting}
+#include <unistd.h>
+#include <stdio.h>
+int main()
+{
+		pid_t t;
+		t = fork();
+		printf("This is a common line\n");
+		if (t > 0) {
+			printf("I am parent. My pid is: %d\n",getpid());
+		} else if (t == 0) {
+		printf("CHILD. My pid is %d, my ppid is %d\n",getpid(), getppid());
+		} else {
+		printf("ERROR\n");
+	}
+}
+\end{lstlisting}
+
+\textit{Output.}
+\begin{lstlisting}
+This is a common line
+I am parent. My pid is: 7288
+This is a common line
+CHILD. My pid is 7289, my ppid is 7288
+\end{lstlisting}
+
+\section{Process creation using vfork()}
+
+\textbf{Problem 19} \textit{Create a child process in C using vfork().}\\
+
+\textit{Code.}
+
+\begin{lstlisting}
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+	pid_t t;
+	t = vfork();
+	if (t > 0) {
+		printf("I am parent\n");
+	} else if (t == 0) {
+	printf("CHILD\n");
+	} else {
+		printf("ERROR\n");
+	exit(1);
+}
+printf("This line is common\n");
+exit(0);
+}
+\end{lstlisting}
+
+\textit{Output.}
+\begin{lstlisting}
+CHILD
+This line is common
+I am parent
+This line is common
+\end{lstlisting}
+
+
+\section{Process creation using vfork()}
+
+\textbf{Problem 20} \textit{Create a custom signal handler.}\\
+
+\textit{Code.}
+
+\begin{lstlisting}
+#include <signal.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+void view_err(int);
+void div_err(int);
+
+int main()
+{
+	signal(SIGINT, view_err);
+	signal(SIGFPE, div_err);
+	//signal(SIGFPE, SIG_DFL); /* This throws the default value*/
+	//while(1);
+	float a = 1/0;
+}
+
+void view_err(int sig)
+{
+	printf("\nRecvd %d\n",sig);
+	exit(1);
+}
+
+void div_err(int sig)
+{
+	printf("\nDIv by 0 error %d\n",sig);
+	exit(1);
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+#include <signal.h>
+#include <stdio.h>
+
+int main()
+{
+	signal(SIGINT, SIG_IGN);
+	while(1);
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <signal.h>
+
+void _alarm(int);
+
+int main()
+{
+	signal(SIGALRM, _alarm);
+	alarm(3);
+	sleep(10);
+}
+
+void _alarm(int x)
+{
+	printf("ALARM\n");
+	exit(1);
+}
+\end{lstlisting}
+
+\textit{Output.}
+\begin{lstlisting}
+
+\end{lstlisting}
+
 \end{document}
 %\grid\grid
 \grid
